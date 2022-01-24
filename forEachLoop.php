@@ -20,8 +20,7 @@
         $editedstr = "";
         foreach ($asnumbers as $Key=>$Value) {
           $editedstr = ucwords(str_replace("_"," ",$Key));
-          //if ($editedstr == "Na An") {
-            //echo $editedstr."<br>";
+
             if ($editedstr == "Na Am") {
               if (is_numeric($Value)) {
                   echo "The name is {$editedstr} and the value is : {$Value} <br>";

@@ -16,12 +16,6 @@
               echo "{$names[$i]} is gevind <br>";
 
       }
-
-
-
-
-
-
     ?>
   </body>
 </html>

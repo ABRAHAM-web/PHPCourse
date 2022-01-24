@@ -15,6 +15,5 @@
         };
         showNum();
     ?>
-
   </body>
 </html>

@@ -30,10 +30,6 @@
         echo current($numbers)."<br>";
         reset($numbers);
         echo current($numbers)."<br>";
-
-
-
-
       ?>
 
   </body>
