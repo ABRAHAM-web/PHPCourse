@@ -14,13 +14,14 @@
   if(isset($_POST["Submit"])){
     if(empty($_POST['Name'])){
           $nameError = 'No name was provided';
+          $infoOk = 0;
     } else {
       $name = test_User_Input($_POST["Name"]);
       if(!preg_match("/gerhard/i",$name)){
-        $nameError = 'No '.$name.' found in the name that you have provided';
+        $nameError = "The name that you have provided is wrong";
         $infoOk = 0;
       } else {
-        $nameError = "The name ".$name." that you have provided is correct";
+        $nameError = "The name that you have provided is correct";
         $infoOk = 1;
       }
     }
@@ -39,6 +40,7 @@
 
     if(empty($_POST['Website'])){
           $websiteError = 'No Website was provided';
+          $infoOk = 0;
     } else {
       $website = test_User_Input($_POST["Website"]);
       if(!preg_match("/water-bearer.co.za/i",$website)){
@@ -84,6 +86,7 @@
   <head>
     <meta charset="utf-8">
     <title>Form validation</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
   </head>
   <body>
     <?php
@@ -103,7 +106,7 @@
       <legend>* Please fill in the following fields</legend>
           <form action="formValidation.php" method="post">
             <label for="Name">Name:</label><br>
-            <input type="text" id="Name" name="Name" value="">*<br><?PHP echo $nameError;?><br><br>
+            <input type="text" id="Name" name="Name" value=""><span class="inputError">*<br><?PHP echo $nameError;?></span><br><br>
             <label for="e-mail">E-mail:</label><br>
             <input type="email" id="e-mail" name="e-mail" value="">*<br><?PHP echo $emailError; ?><br><br>
             <label for="Male">Male:</label>
