@@ -7,10 +7,18 @@
     <link href="/PHPcourse/GET/DynamicWebPagesProject/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="header">Hallo Ha-lo o</div>
+    <div class="header">
+        <div class="headerItems">
+          <a style="color:Red" href="RedFile.php"><?php echo "1 Een"; ?></a><div>..</div>
+          <a style="color:Purple" href="PurpleFile.php"><?php echo "2 Twee"; ?></a><div>..</div>
+          <a style="color:Green" href="GreenFile.php"><?php echo "3 Drie"; ?></a><div>..</div>
+          <a style="color:Orange" href="OrangeFile.php"><?php echo "4 Vier"; ?></a>
+      </div>
+    </div>
     <main>
       <div class="content">
-        Hello my geliefde mense.Plaas gerus u inhoud hier binne
+        Hello my geliefde mense.Plaas gerus u inhoud hier binne<br>
+        <?php echo "En jou tant antie wat brantie."; ?>
       </div>
       <div class="sidePanel">
 

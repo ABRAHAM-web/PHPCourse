@@ -8,16 +8,19 @@
   position : relative;
   height : 10vh;
   width : 100vw;
-  text-align: : center;
-  text-align: left ;
+  text-align: center;
   border-style: solid;
   border-color: black;
   border-width: thin;
   font-weight: lighter;
   background-color: brown;
   color : white;
-  text-align: center;
 }
+
+.headerItems {
+  display: inline-flex;
+}
+
 main {
   display: inline-flex;
 
