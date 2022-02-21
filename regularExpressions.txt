@@ -1,0 +1,7 @@
+
+employeeName : /[A-Za-z0-9@.]*/i
+mail : /[A-Za-z0-9]*@[A-Za-z0-9]*.[A-Za-z0-9]*/i
+ssn (social security Number) : /[A-Za-z0-9]*/i
+department : /[A-Za-z0-9]*/i
+salary : /[0-9.]/i
+address : /[A-Za-z0-9 .,]*/i

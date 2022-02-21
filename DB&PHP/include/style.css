@@ -1,0 +1,12 @@
+label {
+  color:  red;
+};
+
+input {
+  color: green;
+};
+.formContainer {
+  display: flex;
+  align-content: center;
+
+};
