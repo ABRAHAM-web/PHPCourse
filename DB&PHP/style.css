@@ -1,0 +1,23 @@
+.fieldsetContainer{
+  /* display: flex; */
+  align-items: : center;
+  align-content: center;
+  /* align-self: center; */
+  align : center;
+  display: flex;
+
+}
+
+.fieldset {
+  /* width: 50%;
+  margin-left: 25%; */
+}
+
+.dbTableView {
+  border-width:  thin;
+  border-style: solid;
+  border-color: black;
+  border-width:  thin;
+  width: 50%;
+  /* grid-style: solid; */
+}

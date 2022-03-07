@@ -1,12 +1,32 @@
 label {
   color:  red;
-};
-
+}
 input {
   color: green;
-};
-.formContainer {
-  display: flex;
-  align-content: center;
+}
 
-};
+
+.FieldInfo{
+  color : rgb(251,174,44);
+}
+
+.container{
+  align-content: center;
+  align-items: center;
+  align : center;
+  display: flex;
+}
+
+.formContainer{
+  align-items: center;
+  align-content: center;
+}
+
+.fieldSet {
+  width:  50%;
+  margin-left: 25%;
+}
+
+.dbview {
+  border-style: solid;
+}

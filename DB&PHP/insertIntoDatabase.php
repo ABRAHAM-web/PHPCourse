@@ -1,4 +1,5 @@
 <?PHP
+  require_once("include/db.php");
 
   $employeeNameErrorMessage = "Numbers, letters, @ and . allowed";
   $employeeName = "";
@@ -13,85 +14,101 @@
   $addressErrorMessage = "Numbers and letters allowed on multiple lines";
   $infoOK = 1;
 
+  $sqldb;
+  //$sql = "INSERT INTO emp_record (id, employeeName, ssn, department, homeAddress) VALUES (NULL, 'Pietertjie', 'erv43a', 'IM_IT', '356 Piet pompies laan riview wig')";
+
 
    if(isset($_POST["Submit"])) {
 
      //echo "Waiting";
-     if(empty($_POST["employeeName"]))  {
-       $employeeNameErrorMessage = "Geen employeeName";
-       $infoOK = 0;
-     } else {
-      $employeeName = retunValues($_POST["employeeName"]);
-      if(!preg_match("/[A-Za-z0-9@.]*/i",$employeeName)){
-        $employeeNameErrorMessage = 'No '.$employeeName.' found in the name that you have provided';
-        $infoOk = 0;
-      } else {
-        $employeeNameErrorMessage = "The employeeName ".$employeeName." that you have provided is correct";
-      }
-     }
-
-     if(empty($_POST["ssn"]))  {
-       $ssnErrorMessage = "Niks ssn";
-       $infoOK = 0;
-     } else {
-       $ssn = retunValues($_POST["ssn"]);
-       if(!preg_match("/[A-Za-z0-9]*/i",$ssn)){
-         $ssnErrorMessage = 'No '.$ssn.' found in the name that you have provided';
-         $infoOk = 0;
+     echo $sql;
+       if(empty($_POST["employeeName"]))  {
+         $employeeNameErrorMessage = "Geen employeeName";
+         $infoOK = 0;
        } else {
-         $ssnErrorMessage = "The ssn ".$ssn." that you have provided is correct";
+        $employeeName = retunValues($_POST["employeeName"]);
+        if(!preg_match("/[A-Za-z0-9@.]*/i",$employeeName)){
+          $employeeNameErrorMessage = 'No '.$employeeName.' found in the name that you have provided';
+          $infoOk = 0;
+        } else {
+          $employeeNameErrorMessage = "The employeeName ".$employeeName." that you have provided is correct";
+        }
        }
-     }
 
-     if(empty($_POST["department"])) {
-       $departmentErrorMessage = "departement ????!!!!!";
-       $infoOK = 0;
-     } else {
-       $department = retunValues($_POST["department"]);
-       if(!preg_match("/[A-Za-z0-9]*/i",$department)){
-         $departmentErrorMessage = 'No '.$department.' found in the department that you have provided';
-         $infoOk = 0;
+       if(empty($_POST["ssn"]))  {
+         $ssnErrorMessage = "Niks ssn";
+         $infoOK = 0;
        } else {
-         $departmentErrorMessage = "The department ".$department." that you have provided is correct";
+         $ssn = retunValues($_POST["ssn"]);
+         if(!preg_match("/[A-Za-z0-9]*/i",$ssn)){
+           $ssnErrorMessage = 'No '.$ssn.' found in the name that you have provided';
+           $infoOk = 0;
+         } else {
+           $ssnErrorMessage = "The ssn ".$ssn." that you have provided is correct";
+         }
        }
-     }
 
-     if(empty($_POST["salary"]))  {
-       $salaryErrorMessage = "En Salarissie";
-       $infoOK = 0;
-     } else {
-       $salary = retunValues($_POST["salary"]);
-       if(!preg_match("/[0-9.]/i",$salary)){
-         $salaryErrorMessage = 'No '.$salary.' found in the department that you have provided';
-         $infoOk = 0;
+       if(empty($_POST["department"])) {
+         $departmentErrorMessage = "departement ????!!!!!";
+         $infoOK = 0;
        } else {
-         $salaryErrorMessage = "The salary ".$salary." that you have provided is correct";
+         $department = retunValues($_POST["department"]);
+         if(!preg_match("/[A-Za-z0-9]*/i",$department)){
+           $departmentErrorMessage = 'No '.$department.' found in the department that you have provided';
+           $infoOk = 0;
+         } else {
+           $departmentErrorMessage = "The department ".$department." that you have provided is correct";
+         }
        }
-     }
 
-     if(empty($_POST["address"]))  {
-       $addressErrorMessage = "Waar bly jy?";
-       $infoOK = 0;
-     } else {
-       $address = retunValues($_POST["address"]);
-       if(!preg_match("/[A-Za-z0-9 .,]*/i",$address)){
-         $address = 'The '.$address.' that you have provided is wrong.';
-         $infoOk = 0;
+       if(empty($_POST["salary"]))  {
+         $salaryErrorMessage = "En Salarissie";
+         $infoOK = 0;
        } else {
-         $address = "The address \"".$address."\" that you have provided is correct";
+         $salary = retunValues($_POST["salary"]);
+         if(!preg_match("/[0-9.]/i",$salary)){
+           $salaryErrorMessage = 'No '.$salary.' found in the department that you have provided';
+           $infoOk = 0;
+         } else {
+           $salaryErrorMessage = "The salary ".$salary." that you have provided is correct";
+         }
        }
-     }
-     if($infoOK) {
-       echo "<fieldset>";
-       echo "<legend>Your submitted data</legend><br>";
-       echo "Employee Name : ".$employeeName."<br>";
-       echo "Social security Number : ".$ssn."<br>";
-       echo "Department : ".$department."<br>";
-       echo "Salary : ".$salary."<br>";
-       echo "address : ".$address."<br>";
-       echo "</fieldset>";
-     }
 
+       if(empty($_POST["address"]))  {
+         $addressErrorMessage = "Waar bly jy?";
+         $infoOK = 0;
+       } else {
+         $address = retunValues($_POST["address"]);
+         if(!preg_match("/[A-Za-z0-9 .,]*/i",$address)){
+           $address = 'The '.$address.' that you have provided is wrong.';
+           $infoOk = 0;
+         } else {
+           $address = "The address \"".$address."\" that you have provided is correct";
+         }
+       }
+
+       if($infoOK) {
+         echo "<fieldset>";
+         echo "<legend>Your submitted data</legend><br>";
+         echo "Employee Name : ".$employeeName."<br>";
+         echo "Social security Number : ".$ssn."<br>";
+         echo "Department : ".$department."<br>";
+         echo "Salary : ".$salary."<br>";
+         echo "address : ".$address."<br>";
+         $sql = "INSERT INTO emp_record (id, employeeName, ssn, department, homeAddress) VALUES (NULL, :enamE, :ssN, :departmenT, :addresS)";
+         echo $sql."<br>";
+         $stmt = $sqldb->prepare($sql);
+         $stmt->bindvalue(':enamE',$employeeName);
+         $stmt->bindvalue(':ssN',$ssn);
+         $stmt->bindvalue(':departmenT',$department);
+         $stmt->bindvalue(':addresS',$address);
+         $execute = $stmt->execute();
+        if($execute) {
+          echo "<span>Record has been inserted successfully</span><br>";
+        }
+         echo "</fieldset>";
+
+       }
    }
    //$name = test_User_Input($_POST["Name"]);
    function retunValues($data){
@@ -110,10 +127,10 @@
   <body>
         <h3>Database and PHP excercise</h3> <?php echo "Hoezit!!!!...ek se....!!!"; ?>
         <hr>
-        <div>
+        <div class="container">
+          <fieldset class="fieldSet">
           <legend>Insert Into Database</legend>
-          <fieldset>
-              <form action="insertIntoDatabase.php" method="post">
+              <form class="formContainer" action="insertIntoDatabase.php" method="post">
                 <label  for="employeeName">User</label><br>
                 <input type="text" alt=""id="employeeName" name="employeeName"placeholder="your name is your shame"><?php echo "* ".$employeeNameErrorMessage ?><br>
 
@@ -131,7 +148,7 @@
 
                 <label for="Submit">Submit</label><br>
                 <input type="Submit" name="Submit" value="Submit your record"><?php echo $errorMessage ?>
-                </form>
+              </form>
           </fieldset>
       </div>
   </body>
