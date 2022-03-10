@@ -95,19 +95,23 @@
          echo "Department : ".$department."<br>";
          echo "Salary : ".$salary."<br>";
          echo "address : ".$address."<br>";
-         $sql = "INSERT INTO emp_record (id, employeeName, ssn, department, homeAddress) VALUES (NULL, :enamE, :ssN, :departmenT, :addresS)";
+         $sql = "INSERT INTO emp_record (id, employeeName, ssn, department,salary, homeAddress) VALUES (NULL, :enamE, :ssN, :departmenT,:salarY, :addresS)";
          echo $sql."<br>";
          $stmt = $sqldb->prepare($sql);
+
          $stmt->bindvalue(':enamE',$employeeName);
          $stmt->bindvalue(':ssN',$ssn);
          $stmt->bindvalue(':departmenT',$department);
+         $stmt->bindvalue(':salarY',$salary);
          $stmt->bindvalue(':addresS',$address);
          $execute = $stmt->execute();
-        if($execute) {
-          echo "<span>Record has been inserted successfully</span><br>";
-        }
-         echo "</fieldset>";
 
+          if($execute) {
+            echo "<span>Record has been inserted successfully</span><br>";
+          } else {
+            echo "Boggerop!!!";
+          }
+         echo "</fieldset><br>";
        }
    }
    //$name = test_User_Input($_POST["Name"]);
